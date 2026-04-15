@@ -1,14 +1,15 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=23573997&assignment_repo_type=AssignmentRepo)
 # Day 10 Lab: Data Pipeline & Data Observability
 
-**Student Email:** email@example.com
-**Name:** (Dien ten cua ban)
+**Student Email:** monkeydangluffy@gmail.com
+
+**Name:** Phạm Hải Đăng
 
 ---
 
 ## Mo ta
 
-(Mo ta ngan gon bai lab va nhung gi ban da lam)
+Bài lab này thực hiện xây dựng một pipeline ETL (Extract, Transform, Load) tự động để xử lý dữ liệu sản phẩm từ file JSON sang CSV. Pipeline bao gồm các bước kiểm tra chất lượng dữ liệu (Validation) để loại bỏ các record lỗi và chuẩn hóa dữ liệu (Transformation) trước khi lưu trữ. Ngoài ra, bài lab còn thực hiện thí nghiệm Stress Test với AI Agent để chứng minh tầm quan trọng của chất lượng dữ liệu đối với hiệu suất của Agent.
 
 ---
 
@@ -26,7 +27,10 @@ python solution.py
 
 ### Chay Agent Simulation (Stress Test)
 ```bash
-# Mo ta cach ban chay thi nghiem Clean vs Garbage data
+# Để so sánh tác động của dữ liệu:
+# 1. Chạy pipeline để tạo processed_data.csv từ raw_data.json
+# 2. Chạy simulation để xem kết quả giữa Clean Data và Garbage Data
+python agent_simulation.py
 ```
 
 ---
@@ -44,4 +48,7 @@ python solution.py
 
 ## Ket qua
 
-(Tom tat ket qua: bao nhieu records da xu ly, bao nhieu bi loai, v.v.)
+- **ETL Pipeline**: Đã xử lý 5 records từ `raw_data.json`, trong đó:
+    - 3 records hợp lệ được lưu vào `processed_data.csv`.
+    - 2 records bị loại bỏ (1 record giá <= 0, 1 record thiếu category).
+- **Observability**: AI Agent hoạt động tốt với dữ liệu sạch (Accuracy 10/10) nhưng đưa ra câu trả lời sai lầm với dữ liệu rác (Accuracy 2/10), khẳng định vai trò của Data Quality.
